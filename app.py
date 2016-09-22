@@ -12,7 +12,7 @@ ALLOWED_IMAGE_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 def process_image(img):
   #open up the mask
-  mask = Image.open('mask.png')
+  mask = Image.open('./filters/mask.png')
   mask = mask.convert('RGBA')
   #make sure it matches the size of the image
   mask = mask.resize(img.size)
