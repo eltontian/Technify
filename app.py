@@ -12,7 +12,7 @@ ALLOWED_IMAGE_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 def process_image(img):
   #open up the mask
-  mask = Image.open('./filters/mask.png')
+  mask = Image.open('./filters/BigLittleFilter.png')
   mask = mask.convert('RGBA')
   #make sure it matches the size of the image
   mask = mask.resize(img.size)
@@ -61,7 +61,7 @@ def process_image(img):
 def index():
     return render_template('index.html')
 
-@app.route('/technify', methods=['POST'])
+@app.route('/tasafy', methods=['POST'])
 def classify_upload():
   try:
     #get the image from the request
@@ -84,7 +84,7 @@ def classify_upload():
     image = Image.open(filename)
   except Exception as err:
     #uh oh. Something went wrong.
-    print 'Uploaded image open error: ' + err
+    print('Uploaded image open error: ' + err)
     return 'Error: ' + err
 
   #process the image
